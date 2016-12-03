@@ -1,0 +1,66 @@
+<head>
+    <title>George Colson</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+    <ul class="navbar">
+        <li class="col-md-offset-1 col-md-2 text-center"><h3>George Colson</h3></li>
+        <li class="col-md-offset-5 col-md-1 col-xs-4"><a class="nav" id="about-link" class="active" href="#about">About</a></li>
+        <li class="col-md-1 col-xs-4"><a class="nav" id="links-link" href="#links">Links</a></li>
+        <li class="col-md-1 col-xs-4"><a class="nav" id="projects-link" href="#projects">Projects</a></li>
+    </ul>
+
+    <div class="container">
+        <div id="content-holder" class="row">
+            <div id="about" class="content">
+                <img class="col-md-6 col-md-offset-3 col-xs-offset-2 col-xs-8" id="selfie" src="https://lh3.googleusercontent.com/VdXoCfCwiaRltCy7N748KHiPXPs0Ee8O9kA_uSURLaTHb2Acb66qyYibihJeBqPC5gmz8akowRP70vQ=w1366-h647-rw"/>
+                    <h1 class="title text-center col-md-6">George Colson</h1>
+                    <p class="page-text col-md-6 text-center" id="bio">
+                        Hello! My name is George Colson. I am a Computer Science major at the University of Cincinnati.
+                    </p>
+                    <p class="page-text text-center col-md-6">Click<a class="" href="https://goo.gl/taMGp9"> here </a>for my resume</p>
+            </div>
+            <div id="links" class="content">
+                <h1 class="title col-md-offset-2 col-md-10">Links</h1>
+                <div class="links">
+                    <div class="link row" id="twitter">
+                        <img class="icon col-md-offset-3 col-md-3 col-xs-offset-1 col-xs-3" src="https://lh4.googleusercontent.com/L8IWoUNYuDvdzzOfiukM0qRRXO7DdRVOHM2HaotE1KGitTLESoUV0bjPud1dhRpUpwpmcVuf5b2e96Q=w1366-h647"/><a class="link-a col-md-offset-1 col-md-5 col-xs-offset-1 col-xs-3" href="https://www.twitter.com/geocolson"><span class="link-title">Follow me on Twitter!</span></a>
+                    </div>
+                    <div class="link row">
+                        <img class="icon col-md-offset-3 col-md-3 col-xs-offset-3 col-xs-3" src="https://lh6.googleusercontent.com/QJ60yRb58b-mg6HlfXjrODB_Q-q0BwfPds6z-zPSWlwfTpC__I7PKWuc6h3Yy5JxveplUYSvpGc6VTA=w1366-h647"/><a class="link-a col-md-offset-1 col-md-5 col-xs-offset-1 col-xs-3" href="https://github.com/CMinusMinus"><span class="link-title">Checkout my GitHub!</span></a>
+                    </div>
+                    <div class="link row">
+                        <img class="icon col-md-offset-3 col-md-3 col-xs-offset-3 col-xs-3" src="https://lh5.googleusercontent.com/jwUXiuHTY-ectMdNLNuoeZOwfnRXTHflJ9p3pWyW2PKSo3ckUpxtv-ksDoDuFD339DiT2c6A92xERzA=w1366-h647"/>
+                        <a class="link-a col-md-offset-1 col-md-5 col-xs-offset-1 col-xs-3" href="https://www.freecodecamp.com/cminusminus"><span class="link-title">This is FreeCodeCamp!</span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="projects" class="content">
+                <h1 class="title col-md-offset-2 col-md-10">Projects</h1>
+                <p class="page-text col-md-offset-2 col-md-8">I go to a lot of Hackathons. Here are some of the things I've done. Most of them aren't finished, but much of the core framework is there.</p>
+                <div class="row projects">
+                    <div class="project col-md-offset-2 col-md-8">
+                        <h2>Word Game</h2>
+                        <p class="page-text">
+                            Concept:
+                            The rules of this game are simple. You must provide a word that starts with the last letter of the word the player before you provides. For example, if the previous player uses the word "apple," the next player must use a word starting with 'e.'
+                            If a word you submit has already been used, you are out.
+                            What works:
+                            Right now, you can create a game, and add words. The words will be checked for validity on the server-side but it does not remove you from the game.
+                        </p>
+                        <p class="langs text-left">Languages and Frameworks: Javascript, Node.js/Express.js, Mongodb, AngularJS, HTML/CSS, Bootstrap 3.0.
+
+                        <a class="github" href="https://github.com/CMinusMinus/KentHackEnough">Check it out here</a>.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
