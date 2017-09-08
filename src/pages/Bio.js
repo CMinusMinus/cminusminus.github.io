@@ -4,6 +4,8 @@ import { Paper, Cover } from '../Components';
 
 import night from '../images/campus.jpg';
 import george from '../images/george.png';
+import twitter from '../images/twitter.png';
+import github from '../images/github.png';
 
 const Link = ({ image, link, name, style }) => (
   <div className="col-md-12 col-xs-12" style={{ ...style }}>
@@ -43,9 +45,9 @@ const Bio = () => (
       Hello, my name is George Colson. I'm a 4th year (of 5) Computer Science major at the University of Cincinnati. I hope to one day become a part of the video game industry, but for now I work in web development. I love JavaScript and working with people.
     </div>
     <Links links={[
-        generateLink("Github", "https://google.com/", george),
-        generateLink("Twitter", "https://google.com/", george),
-        generateLink("Resume", "https://google.com/", george)
+        generateLink("Github", "https://github.com/CMinusMinus", github),
+        generateLink("Twitter", "https://twitter.com/cminusminus", twitter),
+        {/* generateLink("Resume", "https://google.com/", george) */}
 
     ]} />
   </Paper>
