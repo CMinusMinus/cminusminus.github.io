@@ -30,13 +30,13 @@ class App extends Component {
           }}>
             <div className="col-xs-10 col-sm-11" style={{ fontSize: '25px', height: '36px' }}>George Colson</div> 
             <div style={{ height: '40px', paddingTop: '8px' }} className="col-xs-1" onClick={this.toggleOpen}>
-              <span className="glyphicon glyphicon-menu-hamburger" />
+              {/* <span className="glyphicon glyphicon-menu-hamburger" /> */}
             </div>
-            <Menu open={this.state.open} toggleOpen={this.toggleOpen} tabs={[
+            {/* <Menu open={this.state.open} toggleOpen={this.toggleOpen} tabs={[
               tabGenerator('/', 'About'),
-              tabGenerator('/projects', 'Projects'),
-              tabGenerator('/experience', 'Experience')
-            ]} />
+              tabGenerator('/projects', 'Projects'), 
+              tabGenerator('/experience', 'Experience') 
+            ]} /> */}
           </div>
           <div className="container">
             <Route path="/projects" component={Projects} />

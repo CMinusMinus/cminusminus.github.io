@@ -5,7 +5,8 @@ const Cover = ({ backgroundImage, children }) => (
     backgroundImage: `url(${backgroundImage})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'bottom',
-    height: '40vh', 
+    height: '40vh',
+    backgroundSize: "auto"
   }}>
     {children}
   </div>
