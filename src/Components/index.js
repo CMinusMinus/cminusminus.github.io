@@ -1,4 +1,4 @@
 import Cover from './Cover';
-import { Tabs, Paper, Menu } from './Components';
+import { Tabs, Paper, Menu, Paragraph, InlineText } from './Components';
 
-export { Cover, Tabs, Paper, Menu  };
+export { Cover, Tabs, Paper, Menu, Paragraph, InlineText };

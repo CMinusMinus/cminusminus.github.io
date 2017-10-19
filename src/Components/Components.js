@@ -1,46 +1,58 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Paper = ({ children, minHeight, style }) => (
-  <div style={{
+const Paper = ({ children, minHeight, style, className }) => (
+  <div className={className} style={{
     border: '1px 1px 1px 1px black',
     boxShadow: '3px 3px #DDD, -3px 3px 3px #DDD ', 
     backgroundColor: 'white', 
     minHeight: minHeight,
+    display: 'inline-block',
+    padding: '10px',
     overflow: 'auto',
     clear: 'both',
-    minHeight: '93vh',
     ...style
   }}>
     {children}
   </div>
 );
 
-const Tab = ({ link, tabName, onClick }) => (
-    <NavLink
-      className="col-sm-2 col-xs-12 text-center"
-      to={link}
-      exact
-      onClick={onClick}
-      activeStyle={{ backgroundColor: '#28C', color: 'white', height: '6vh' }}
-      style={{ textDecoration: 'none', color: '#000', height: '36px', width: '100%', fontSize: '18px', float: 'bottom' }}
-    >
-      {tabName}
-    </NavLink>
-);
-
 const Tabs = ({ tabs }) => (
-    <div className="row">{tabs.map((tab, index) => (
-        <Tab key={index} link={tab.link} tabName={tab.tabName} />
-    ))}</div>
-);
-
-const Menu = ({ toggleOpen, open, tabs }) => (
-  <div>
-    <div>{open && tabs.map((tab, index) => (
-      <Tab key={index} link={tab.link} onClick={toggleOpen} tabName={tab.tabName} />
-    ))}</div>
+  <div style={{ display: 'inline', float: 'right' }}>
+    {tabs.map((tab, index) => (
+      <a key={index} style={{
+            color: "inherit", 
+            height: 'inherit', 
+            width: 'inherit', 
+            textDecoration: 'inherit' 
+          }} href={tab.link}>
+      <div
+        className="text-center"
+        style={{
+          width: '102px',
+          fontSize: '15px',
+          height:'36px',
+          color: window.location.hash === tab.link ? 'white' : '',
+          backgroundColor: window.location.hash === tab.link ? '#2778CD' : '',
+          clear: 'both',
+          display: 'inline-block',
+          lineHeight: '36px',
+          textDecoration: 'none',
+        }}>
+          
+      {tab.name}  
+    </div></a>))}
   </div>
-);
+)
 
-export { Tabs, Paper, Menu };
+const Paragraph = ({ children, style, className }) => (
+  <div className={className} style={{ marginBottom: '10px', ...style }}>
+    {children}
+  </div>
+)
+
+const InlineText = ({ children, style, left, className }) => (
+  <div className={className} style={{ display: 'inline-block', margin: '10px', marginLeft: left ? '0' : '', ...style }}>{children}</div>
+)
+
+export { Tabs, Paper, Paragraph, InlineText };

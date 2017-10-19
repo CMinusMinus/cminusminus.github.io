@@ -1,24 +1,26 @@
 import React from 'react';
 
-import { Paper, Cover } from '../Components';
+import { Paper, Cover, Paragraph } from '../Components';
 
 import night from '../images/campus.jpg';
-import george from '../images/george.png';
+import george from '../images/GeorgeColson.jpg';
 import twitter from '../images/twitter.png';
 import github from '../images/github.png';
+import outlook from '../images/outlook.ico';
+import resume from '../images/pdfIcon.ico';
 
 const Link = ({ image, link, name, style }) => (
   <div className="col-md-12 col-xs-12" style={{ ...style }}>
     <img src={image} style={{
       marginRight: '5px',
       height: '50px',
-      borderRadius: '25px'
+      borderRadius: '25px',
     }} /><a style={{ textDecoration: 'none', color: 'black' }} href={link} target="_blank">{name}</a>
   </div>
 );
 
 const Links = ({ links }) => (
-  <div className="col-xs-12 col-md-4 col-sm-4" style={{ fontSize: '18px', float: 'bottom', marginBottom: '10px', marginTop: '30px' }}>
+  <div className="col-xs-12 col-md-3 col-sm-3" style={{ fontSize: '18px', float: 'right', marginBottom: '10px', marginTop: '30px' }}>
     <div style={{ fontWeight: 'bold', marginBottom: '10px' }}>Links</div>
     {links.map((linkProps, index) => (
       <Link {...linkProps} key={index} style={{ marginBottom: '10px' }} />
@@ -26,29 +28,43 @@ const Links = ({ links }) => (
   </div>
 );
 
-
 const generateLink = (name, link, image) => ({ name, link, image });
 
 const Bio = () => (
-  <Paper>
+  <Paper style={{ padding: '0' }}>
     <Cover backgroundImage={night}>
       <img src={george} style={{  
-        height: '30vh', 
+        height: '30vh',
         marginTop: '40px', 
         marginLeft: '20px',
         border: '5px solid white',
-        borderRadius: '3px'
+        borderRadius: '3px',
+        boxShadow: '1px 1px #999, -1px 1px 1px #999 ',
       }} />
     </Cover>
-    <div className="col-xs-12 col-md-8 col-sm-8" style={{ fontSize: '18px', marginBottom: '10px', marginTop: '30px' }}>
-      <div style={{ fontWeight: 'bold' }}>About Me</div>
-      Hello, my name is George Colson. I'm a 4th year (of 5) Computer Science major at the University of Cincinnati. I hope to one day become a part of the video game industry, but for now I work in web development. I love JavaScript and working with people.
+    <div 
+      className="col-xs-12 col-md-8 col-sm-8" 
+      style={{ 
+        fontSize: '18px', 
+        marginBottom: '10px', 
+        marginTop: '30px' 
+      }}>
+      <div style={{ fontWeight: 'bold', fontSize: '30px' }}>George Colson</div>
+      <Paragraph>
+        Hello, my name is George Colson. I'm a Computer Science student at the University of Cincinnati. I will be graduating in the Spring of 2019.
+      </Paragraph>
+      <Paragraph>
+        I'm in classes after 8 months working full time as a frontend developer coop for the University of Cincinnati's student site, Catalyst. Catalyst is used by students to do administrative tasks such as enrolling in classes, accepting financial aid, and paying their tuition. My job was to design and maintain components of the site's main pages using ReactJS.
+      </Paragraph>
+      <Paragraph>
+        I've spent the past 4 years going to hackathons across Ohio to hone my skills in web development.  
+      </Paragraph>
     </div>
     <Links links={[
         generateLink("Github", "https://github.com/CMinusMinus", github),
         generateLink("Twitter", "https://twitter.com/cminusminus", twitter),
-        {/* generateLink("Resume", "https://google.com/", george) */}
-
+        generateLink("Email", "mailto:colsonge@mail.uc.edu", outlook),
+        generateLink("Resume", "https://drive.google.com/file/d/0B_YMaoDwWN-OckMzLXB0ZGZ4Qk0/view?usp=sharing", resume)
     ]} />
   </Paper>
 );
