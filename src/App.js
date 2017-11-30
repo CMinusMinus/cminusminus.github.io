@@ -25,7 +25,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Drawer pullRight sidebar={
+        <div className="App" style={{ backgroundColor: '#EEE', paddingBottom: '20px', height: '100%', minHeight: '100vh', paddingBottom: '10px' }}>
+        <Drawer style={{ minHeight: '100vh', height: '100%' }} pullRight sidebar={
           <div style={{ 
             minHeight: '100vh', 
             width: '200px', 
@@ -63,6 +64,7 @@ class App extends Component {
             </div>
           </div>
         </Drawer>
+        </div>
       </Router>
     );
   }

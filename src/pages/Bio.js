@@ -43,7 +43,7 @@ const generateLink = (name, link, image) => ({ name, link, image });
 const Bio = () => (
   <Paper style={{
     padding: '0',
-    margin: 'auto',
+    margin: 'auto 10px',
     display: 'flex',
     alignSelf: 'center',
     flexDirection: 'column'
@@ -60,10 +60,11 @@ const Bio = () => (
     </Cover>
     <div style={{ display: 'block', clear: 'both' }}>
     <div style={{ 
-      fontSize: '18px', 
-      margin: '10px 10px 10px 30px',
-      maxWidth: '700px',
-      display: 'inline-block'
+      fontSize: '18px',
+      padding: '20px',
+      margin: 'auto',
+      /* maxWidth: 'px', */
+      display: 'block'
     }}>
       <div style={{ fontWeight: 'bold', fontSize: '30px' }}>George Colson</div>
       <Paragraph>
