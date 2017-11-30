@@ -1,6 +1,6 @@
-import React from 'react';
-import { Paper, Cover, Paragraph, InlineText } from '../Components';
-// import campus from '../images/campus.jpg';
+import React from 'react'
+import { Paper, Cover, Paragraph, InlineText } from '../Components'
+import dogImage from '../images/dogImage.png'
 
 const projectList = [
   { // the dog, maybe the title screen
@@ -8,7 +8,8 @@ const projectList = [
     technologies: ['Unity', 'Gimp'],
     madeAt: 'KHE 2017',
     description: 'This project was built using Unity. Its the first level of a game about a dog trying to find out where her owner goes when he leaves for the day. We implemented an inventory system and the ability to interact with objects in the environment. A large part of the project was drawing all of the assets in Gimp. You can watch a video we put together of the gameplay with the link below, or check out the source code on Github.',
-    links: [{ name: 'Github', url: 'https://github.com/nicholas-maltbie/DogDays' }, { name: 'YouTube', url: 'https://www.youtube.com/watch?v=Bjg5wTO8kgM' }]
+    links: [{ name: 'Github', url: 'https://github.com/nicholas-maltbie/DogDays' }, { name: 'YouTube', url: 'https://www.youtube.com/watch?v=Bjg5wTO8kgM' }],
+    // image: dogImage,
   },
   { // Hangman dead guy 
     title: 'Dog Hangman',
@@ -40,16 +41,19 @@ const projectList = [
   },
 ];
 
-const Project = ({ title, description, technologies, madeAt, links }) => (
+const Project = ({ title, description, technologies, madeAt, links, image }) => (
   <Paper 
-    style={{ 
-      margin: '10px', 
+    style={{
+      display: 'flex', 
+      alignSelf: 'center',
+      flexDirection: 'column',
       verticalAlign: 'top', 
       minHeight: '220px', 
       clear: 'none',
-      border: '3px 3px #CCC'
-    }} 
-    className="">
+      width: '100%',
+      marginBottom: '10px'
+    }}>
+    {image && <img src={image} style={{ height: '20px' }} />}
     <div style={{ fontSize: '18px', fontWeight: 'bold' }}>{title}</div>
     <InlineText style={{ marginLeft: '0' }}>
       <span style={{ fontWeight: 'bold' }}>Made At: </span> {madeAt}

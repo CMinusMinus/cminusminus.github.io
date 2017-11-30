@@ -1,10 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+
+// defaults to unstyled link, because why would you want that most of the time
+const Link = ({ style, href, children, className }) => (
+  <a className={className} style={{
+    color: "inherit", 
+    height: 'inherit', 
+    width: 'inherit', 
+    textDecoration: 'inherit',
+    ...style,
+  }} href={href}>
+    {children}
+  </a>
+)
 
 const Paper = ({ children, minHeight, style, className }) => (
   <div className={className} style={{
     border: '1px 1px 1px 1px black',
-    boxShadow: '3px 3px #DDD, -3px 3px 3px #DDD ', 
+    boxShadow: '3px 3px 5px #CCC, -3px 3px 5px #CCC', 
     backgroundColor: 'white', 
     minHeight: minHeight,
     display: 'inline-block',
@@ -20,28 +32,24 @@ const Paper = ({ children, minHeight, style, className }) => (
 const Tabs = ({ tabs }) => (
   <div style={{ display: 'inline', float: 'right' }}>
     {tabs.map((tab, index) => (
-      <a key={index} style={{
-            color: "inherit", 
-            height: 'inherit', 
-            width: 'inherit', 
-            textDecoration: 'inherit' 
-          }} href={tab.link}>
-      <div
-        className="text-center"
-        style={{
-          width: '102px',
-          fontSize: '15px',
-          height:'36px',
-          color: window.location.hash === tab.link ? 'white' : '',
-          backgroundColor: window.location.hash === tab.link ? '#2778CD' : '',
-          clear: 'both',
-          display: 'inline-block',
-          lineHeight: '36px',
-          textDecoration: 'none',
-        }}>
-          
-      {tab.name}  
-    </div></a>))}
+      <Link key={index} href={tab.link}>
+        <div
+          className="text-center"
+          style={{
+            width: '102px',
+            fontSize: '15px',
+            height:'36px',
+            color: window.location.hash === tab.link ? 'white' : '',
+            backgroundColor: window.location.hash === tab.link ? '#2778CD' : '',
+            clear: 'both',
+            display: 'inline-block',
+            lineHeight: '36px',
+            textDecoration: 'none',
+          }}>
+          {tab.name}
+        </div>
+      </Link>
+    ))}
   </div>
 )
 
@@ -52,7 +60,14 @@ const Paragraph = ({ children, style, className }) => (
 )
 
 const InlineText = ({ children, style, left, className }) => (
-  <div className={className} style={{ display: 'inline-block', margin: '10px', marginLeft: left ? '0' : '', ...style }}>{children}</div>
+  <div className={className} style={{ 
+    display: 'inline-block', 
+    margin: '10px', 
+    marginLeft: left ? '0' : '', 
+    ...style 
+  }}>
+    {children}
+  </div>
 )
 
-export { Tabs, Paper, Paragraph, InlineText };
+export { Tabs, Paper, Paragraph, InlineText, Link }

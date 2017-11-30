@@ -6,6 +6,7 @@ const Cover = ({ backgroundImage, children, style }) => (
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'bottom',
     height: '40vh',
+    width: '100%',
     backgroundSize: "auto",
     ...style
   }}>

@@ -11,14 +11,16 @@ const workList = [{
 }]
 
 const Work = ({ title, dateBegin, dateEnd, location, company, description }) => (
-  <Paper style={{ marginLeft: '25%', width: '50%', align: 'center' }}>
+  <Paper style={{ minWidth: '320px', display: 'flex', flexDirection: 'column', alignSelf: 'center' }}>
     <div>
-      <Paragraph style={{ fontWeight: 'bold', fontSize: '25px', margin: '0' }}>
-        {company}
-      </Paragraph>
-      <Paragraph style={{ margin: '0', fontStyle: 'italic', fontSize: '20px' }}>
-        {title}
-      </Paragraph>
+      <div>
+        <Paragraph style={{ fontWeight: 'bold', fontSize: '20px', margin: '0' }}>
+          {company}
+        </Paragraph>
+        <Paragraph style={{ margin: '0', fontStyle: 'italic', fontSize: '18px' }}>
+          {title}
+        </Paragraph>
+      </div>
     </div>
     <InlineText left><span style={{ fontWeight: 'bold' }}>Dates: </span>{`${dateBegin} to ${dateEnd}`}</InlineText>
     <InlineText>
@@ -37,7 +39,7 @@ const Work = ({ title, dateBegin, dateEnd, location, company, description }) => 
 )
 
 const Experience = () => (<div>
-  <div style={{ fontSize: '30px', marginLeft: '20%', fontWeight: 'bold' }}>Work Experience</div>
+  <div style={{ fontSize: '30px', fontWeight: 'bold' }}>Work Experience</div>
   <Work {...workList[0]} />
 </div>);
 

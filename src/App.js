@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import React, { Component } from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
-import Bio from './pages/Bio';
-import Projects from './pages/Projects';
-import Experience from './pages/Experience';
+import Bio from './pages/Bio'
+import Projects from './pages/Projects'
+import Experience from './pages/Experience'
 
-import MediaQuery from 'react-responsive';
+import Drawer from 'react-sidebar'
 
-import { Tabs, Menu } from './Components';
+import { NavBar } from './Components'
 
-const tabGenerator = (link, name) => ({ link, name });
+const tabGenerator = (link, name) => ({ link, name })
 
 class App extends Component {
   constructor(props) {
@@ -25,48 +25,44 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App" style={{ backgroundColor: '#EEE', height: '100%', minHeight: '100vh' }}>
-          <div className="header container-fluid" style={{
-            backgroundColor: '#CCC', 
-            height: '36px',
-            boxShadow: '3px 3px #DDD, -3px 3px 3px #DDD ',
+        <Drawer pullRight sidebar={
+          <div style={{ 
+            minHeight: '100vh', 
+            width: '200px', 
+            backgroundColor: 'white', 
           }}>
-            <div 
-              className="col-xs-10 col-sm-11" 
-              style={{ 
-                fontSize: '25px', 
-                height: '36px', 
-                width: '200px',
-                lineHeight: '36px'
-              }}>
-                George Colson
+            <div style={{ 
+              fontSize: '20px',
+              fontWeight: 'bold',
+              margin: '10px'
+            }}>Navigation</div>
+            <div onClick={() => this.setState({ open: false })} style={{ backgroundColor: window.location.hash === '#/' ? '#2778CD' : 'white', borderBottom: '1px solid #DDD', borderTop: '1px solid #DDD', padding: '10px', width: '200px' }}>
+            <a style={{ width: '100%', textDecoration: 'none', color: window.location.hash === '#/' ? 'white' : 'black' }} href="#/"><div style={{ width: '100%' }}>About</div></a>
             </div>
-            <MediaQuery maxWidth={480}>
-              <div 
-                style={{ 
-                  height: '36px', 
-                  lineHeight: '36px',
-                  float: 'right'
-                }} 
-                className="col-xs-1" 
-                onClick={this.toggleOpen}>
-                <span className="glyphicon glyphicon-menu-hamburger" />
-              </div>
-            </MediaQuery>
-            <MediaQuery minWidth={480}>
-              <Tabs tabs={[
-                tabGenerator('#/', 'About', window.location.hash === '#/'),
-                tabGenerator('#/projects', 'Projects', window.location.hash === '#/projects'), 
-                tabGenerator('#/experience', 'Experience', window.location.hash === '#/experience') 
-              ]} />
-            </MediaQuery>
+            <div onClick={() => this.setState({ open: false })} style={{ backgroundColor: window.location.hash === '#/experience' ? '#2778CD' : 'white', borderBottom: '1px solid #DDD', borderTop: '1px solid #DDD', padding: '10px', width: '200px' }}>
+            <a style={{ textDecoration: 'none', color: window.location.hash === '#/experience' ? 'white' : 'black' }} href="#/experience"><div style={{ width: '100%' }}>Experience</div></a>
+            </div>
+            <div onClick={() => this.setState({ open: false })} style={{ backgroundColor: window.location.hash === '#/projects' ? '#2778CD' : 'white', borderBottom: '1px solid #DDD', borderTop: '1px solid #DDD', padding: '10px', width: '200px' }}>
+            <a style={{ textDecoration: 'none', color: window.location.hash === '#/projects' ? 'white' : 'black' }} href="#/projects"><div style={{ width: '100%' }}>Projects</div></a>
+            </div>
+          </div>} 
+          open={this.state.open} 
+          onSetOpen={() => 
+            this.setState({ open: !this.state.open })
+          }>
+          <div className="App" style={{ backgroundColor: '#EEE', height: '100%', minHeight: '100vh', paddingBottom: '10px' }}>
+            <NavBar onOpen={() => this.setState({ open: !this.state.open })} hash name="George Colson" tabs={[
+              tabGenerator('#/', 'About'),
+              tabGenerator('#/projects', 'Projects'), 
+              tabGenerator('#/experience', 'Experience') 
+            ]} />
+            <div className="container">
+              <Route path="/" exact component={Bio} />            
+              <Route path="/projects" component={Projects} />
+              <Route path="/experience" component={Experience} />
+            </div>
           </div>
-          <div className="container">
-            <Route path="/" exact component={Bio} />            
-            <Route path="/projects" component={Projects} />
-            <Route path="/experience" component={Experience} />
-          </div>
-        </div>
+        </Drawer>
       </Router>
     );
   }
